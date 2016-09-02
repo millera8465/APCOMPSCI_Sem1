@@ -1,0 +1,22 @@
+Escape characters and ASCII art Notes
+
+
+
+
+Characters with a backslash before them have special meanings; they are called "Escape Characters":
+	\t = tab
+	\b = backspace
+	\n = new line
+	\r = carriage return
+	\f = form feed
+	\' = single quote
+	\" = double quote
+	\\ = backslash
+
+Using these escape sequences in print statements allows the compiler to interpret them accordingly.
+
+ASCII art is a technique of graphic design on computers.
+ - It creates pictures using only the 95 standard printable characters.
+ - In other words, it is text-based art
+ - It was created partially because early printers often lacked graphics abilities and required characters 
+to be used in place of graphic methods.
