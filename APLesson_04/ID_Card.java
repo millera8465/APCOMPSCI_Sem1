@@ -19,16 +19,19 @@ public class ID_Card {
 		System.out.println("Enter the school site:");
 		String school = keyboard.nextLine();
 		
-		keyboard.nextLine();
 		System.out.println("Enter the school year:");
 		String year = keyboard.nextLine();
 		
-		keyboard.nextLine();
 		System.out.println("What is your subject?");
 		String subject = keyboard.nextLine();
 		
-		System.out.printf
-		
+		System.out.println("***********************************");
+		printer.formatter(school, year);
+		printer.formatter(firstName, lastName);
+		printer.formatter(title, subject);
+		System.out.println("***********************************");
 	}
-	public void formatter(input1, input2);
+	public void formatter(String input1, String input2) {
+		System.out.printf("* %13s %17s *\n", input1, input2);
+	}
 }
