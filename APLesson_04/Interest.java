@@ -13,7 +13,7 @@ public class Interest {
 		System.out.println("Please enter the life of the loan (in years):");
 		double t = keyboard.nextDouble();
 		double a = calculator.payment(r, p, n, t);
-		System.out.printf("Your total monthly payment is %.2f.\n", calculator.monthly(a, t));
+		System.out.printf("Your total monthly payment is $%.2f.\n", calculator.monthly(a, t));
 	}
 	public double payment(double r, double p, double n, double t) {
 		return (p * Math.pow(1 + r/n, n * t));
