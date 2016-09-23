@@ -4,20 +4,20 @@ public class Subwoofer {
 		Scanner keyboard = new Scanner(System.in);
 		Subwoofer calculator = new Subwoofer();
 		System.out.println("Please enter the height:");
-		int h = keyboard.nextInt();
+		double h = keyboard.nextDouble();
 		System.out.println("Please enter the length:");
-		int l = keyboard.nextInt();
+		double l = keyboard.nextDouble();
 		System.out.println("Please enter the width:");
-		int w = keyboard.nextInt();
+		double w = keyboard.nextDouble();
 		
-		int v = calculator.calcVol(h, l, w);
+		double v = calculator.calcVol(h, l, w);
 		
-		System.out.printf("The volume of the subwoofer is %f cubic feet.", calculator.toCubicFeet(v));
+		System.out.printf("The volume of the subwoofer is %.5f cubic feet.", calculator.toCubicFeet(v));
 	}
-	public int calcVol(int h, int l, int w) {
+	public double calcVol(double h, double l, double w) {
 		return (h * l * w);
 	}
-	public double toCubicFeet(int v) {
-		return (v / 1728.0);
+	public double toCubicFeet(double v) {
+		return (v / 1728);
 	}
 }
