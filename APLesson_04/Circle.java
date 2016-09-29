@@ -15,6 +15,6 @@ public class Circle {
 		area = Math.pow(r, 2) * Math.PI;
 	}
 	public static void print() {
-		System.out.printf("The area of a circle with a radius of %.5f is %.5f", r, area);
+		System.out.printf("The area of a circle with a radius of %.5f is %.5f.\n", r, area);
 	}
 }
