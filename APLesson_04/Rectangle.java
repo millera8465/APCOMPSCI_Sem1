@@ -18,6 +18,6 @@ public class Rectangle {
 		perimeter = (2 * l) + (2 * w);
 	}
 	public static void print() {
-		System.out.printf("Your rectangle is %.5f ft around", perimeter);
+		System.out.printf("Your rectangle is %.5f ft around.\n", perimeter);
 	}
 }
