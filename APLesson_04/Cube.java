@@ -19,6 +19,6 @@ public class Cube {
 		sa = Math.pow(side, 2) * 6;
 	}
 	public static void print() {
-		System.out.printf("The surface area of a cube with %.5f sides is %.5f.", side, sa);
+		System.out.printf("The surface area of a cube with %.5f sides is %.5f.\n", side, sa);
 	}
 }
