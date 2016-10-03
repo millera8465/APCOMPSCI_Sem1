@@ -2,11 +2,10 @@ import java.util.Scanner;
 
 public class AverageReturn {
 	
-	static double num1;
-	static double num2;
-	static double num3;
-	
 	public static void main(String[]args) {
+		double num1;
+		double num2;
+		double num3;
 		Scanner keyboard = new Scanner(System.in);
 		
 		System.out.println("Please enter the first number:");
@@ -17,12 +16,13 @@ public class AverageReturn {
 		
 		System.out.println("Please enter the third number:");
 		num3 = keyboard.nextDouble();
-		print();
+		print(num1, num2, num3);
 	}
-	public static double average() {
+	public static double average(double num1, double num2, double num3) {
 		return (num1 + num2 + num3) / 3;
 	}
-	public static void print() {
-		System.out.printf("The average of %.5f, %.5f, and %.5f is %.5f.\n", num1, num2, num3, average());
+	public static void print(double num1, double num2, double num3) {
+		System.out.printf("The average of %.5f, %.5f, and %.5f is %.5f.\n", 
+		num1, num2, num3, average(num1, num2, num3));
 	}
 }
