@@ -31,6 +31,5 @@ public class Distance {
 		distance = Math.sqrt((xTwo-xOne)*(xTwo-xOne)+(yTwo-yOne)*(yTwo-yOne));
 		return distance;
 	}
-	public static void main(String[]args) {
-	}
+
 }

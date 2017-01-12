@@ -26,6 +26,4 @@ public class MilesPerHour {
 		mph = Math.round(distance / (hours + minutes / 60.0));
 		return mph;
 	}
-	public static void main(String[]args) {
-	}
 }
