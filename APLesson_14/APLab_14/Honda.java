@@ -1,7 +1,7 @@
 public class Honda implements Location {
-	public double xLoc;
-	public double yLoc;
-	public int id = (int)(Math.random()*1000000);
+	double xLoc;
+	double yLoc;
+	int id = (int)(Math.random()*1000000);
 	public Honda() {
 		xLoc = 0;
 		yLoc = 0;
@@ -13,8 +13,8 @@ public class Honda implements Location {
 		return id;
 	}
 	public void move(double[] xy) {
-		xLoc = xy[0];
-		yLoc = xy[1];
+		xLoc += xy[0];
+		yLoc += xy[1];
 	}
 	public double[] getLoc() {
 		double[] loc = new double[2];

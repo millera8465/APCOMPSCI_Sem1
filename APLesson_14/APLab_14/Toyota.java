@@ -1,25 +1,24 @@
 public class Toyota implements Location {
-	public double xLoc;
-	public double yLoc;
-	public int id = (int)(Math.random()*1000000);
+	double[] location;
+	int id = (int)(Math.random()*1000000);
 	public Toyota() {
-		xLoc = 0;
-		yLoc = 0;
+		location = new double[2];
 	}
-	public Toyota(String xy) {
-		move(xy);
+	public Toyota(String l) {
+		location = new double [2];
+		String[] locs = l.split(", ");
+		location[0] = Double.parseDouble(locs[0]);
+		location[1] = Double.parseDouble(locs[1]);
 	}
 	public int getID() {
 		return id;
 	}
-	public void move(String xy) {
-		xLoc = Double.parseDouble(xy.substring(0,xy.indexOf(",")));
-		yLoc = Double.parseDouble(xy.substring(xy.indexOf(",")+2));
+	public void move(double x, double y) {
+		location[0] += x;
+		location[1] += y;
 	}
 	public double[] getLoc() {
-		double[] loc = new double[2];
-		loc[0] = xLoc;
-		loc[1] = yLoc;
+		double[] loc = location;
 		return loc;
 	}
 }

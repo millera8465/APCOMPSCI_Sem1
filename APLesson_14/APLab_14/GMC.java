@@ -1,7 +1,7 @@
 public class GMC implements Location {
-	public double xLoc;
-	public double yLoc;
-	public int id = (int)(Math.random()*1000000);
+	double xLoc;
+	double yLoc;
+	int id = (int)(Math.random()*1000000);
 	public GMC() {
 		xLoc = 0;
 		yLoc = 0;
@@ -13,8 +13,8 @@ public class GMC implements Location {
 		return id;
 	}
 	public void move(double x, double y) {
-		xLoc = x;
-		yLoc = y;
+		xLoc += x;
+		yLoc += y;
 	}
 	public double[] getLoc() {
 		double[] loc = new double[2];
