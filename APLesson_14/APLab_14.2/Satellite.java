@@ -50,8 +50,8 @@ public class Satellite {
 
         for (Location l : locate)
 		{
-           printout += "\nAfter " + l.getID() + " Moved (" + Math.round(movement.get(i)*100.0)/100.0 + ", "
-					+ Math.round(movement.get(i+1)*100.0)/100.0 + ")\nNew Location: (" + getLocation(l.getLoc()) + ")";
+           printout += "\nAfter " + l.getID() + " Moved (" + String.format("%.2f", movement.get(i)) + ", "
+					+ String.format("%.2f", movement.get(i+1)) + ")\nNew Location: (" + getLocation(l.getLoc()) + ")";
 			i+=2;
 		}
 
@@ -67,13 +67,13 @@ public class Satellite {
 		
 	}
 
-	public static double getDistance(double[] car, double[] home)
+	public static String getDistance(double[] car, double[] home)
 	{
-		return Math.round(Math.sqrt((Math.pow(car[0] - home[0], 2)+ Math.pow(car[1] - home[1], 2)))*100.0)/100.0;
+		return String.format("%.2f", Math.pow(car[0] - home[0], 2) + Math.pow(car[1] - home[1], 2));
 	}
 
 	public static String getLocation(double[] loc)
 	{
-		return Math.round(loc[0]*100.0)/100.0 + ", " + Math.round(loc[1]*100.0)/100.0;
+		return String.format("%.2f, %.2f", loc[0], loc[1]);
 	}
 }
