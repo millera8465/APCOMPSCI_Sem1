@@ -32,12 +32,9 @@ public class Satellite {
 		
 		//14.1
 		ArrayList<Double> movement = new ArrayList<>();
-		movement.add(Math.random()*100);
-		movement.add(Math.random()*100);
-		movement.add(Math.random()*100);
-		movement.add(Math.random()*100);
-		movement.add(Math.random()*100);
-		movement.add(Math.random()*100);
+		for (int i = 0; i < 6; i++) {
+			movement.add(Math.random()*100);
+		}
 		h1.move(movement.get(0), movement.get(1));
 		t1.move(movement.get(2), movement.get(3));
 		g1.move(movement.get(4), movement.get(5));
