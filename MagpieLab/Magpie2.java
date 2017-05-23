@@ -21,13 +21,13 @@ public class Magpie2
 		 * 	if you enter nothing, or if you accidentally hit
 		 * 	enter. Think to yourself: "What is the length of
 		 * 	an empty String?" */
-		if (statement.length()==0)
-			response = "Say Something, please.";
+		if (statement.trim().length()==0)
+			response = "Say something, please.";
 			
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "Why so negative?";
 		}
@@ -81,7 +81,6 @@ public class Magpie2
 		/*	-->Refinement: Make sure we find goal by itself, and not part
 			of another word ("no" vs no in "know"). if you find an occurrence
 			of goal, make sure before and after aren't letters.
-
 			As long as psn >= 0...
 				Check if psn > 0 - there is no need to check for before at the
 				beginning of the word
