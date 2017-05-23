@@ -75,6 +75,7 @@ public class Magpie2
 		 	-Use a combination of trim() and toLowerCase() modify statement. */
 		String phrase = statement.trim();
 		phrase = phrase.toLowerCase();
+		goal = goal.toLowerCase();
 		/* New int variable psn = the location of goal in phrase after
 		   startPos */
 		int psn = phrase.indexOf(goal, startPos);
