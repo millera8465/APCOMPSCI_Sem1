@@ -88,7 +88,7 @@ public class Magpie2
 					set before = the slot in phrase before psn */
 
 				//====>code here
-		if(psn >= 0) {
+		while(psn >= 0) {
 			String before = "0";
 			String after = "0";
 			if (psn > 0) {
@@ -108,7 +108,7 @@ public class Magpie2
 				return psn;		
 			}
 				/* Otherwise, search for goal in phrase from psn + 1 forward */
-			else findKeyword(phrase, goal, psn+1);
+			psn++;
 		}
 		return -1;
 
