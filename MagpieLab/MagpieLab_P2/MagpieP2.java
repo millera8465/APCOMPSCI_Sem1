@@ -22,12 +22,12 @@ public class MagpieP2
 		 * 	enter. Think to yourself: "What is the length of
 		 * 	an empty String?" */
 		if (statement.trim().length()==0)
-			response = "Say Something, please.";
+			response = "Say something, please.";
 			
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "Why so negative?";
 		}
@@ -100,7 +100,7 @@ public class MagpieP2
 			statement = statement.substring(0, statement.length()-1);
 		}
 		int psn = findKeyword(statement, "I want to ");
-		String restOfStatement = statement.substring(psn+10);
+		String restOfStatement = statement.substring(psn+2);
 		return "What would it mean to" + restOfStatement + "?";
 		/**
 		* trim the statement
@@ -166,14 +166,13 @@ public class MagpieP2
 		/*	-->Refinement: Make sure we find goal by itself, and not part
 			of another word ("no" vs no in "know"). if you find an occurrence
 			of goal, make sure before and after aren't letters.
-
 			As long as psn >= 0...
 				Check if psn > 0 - there is no need to check for before at the
 				beginning of the word
 					set before = the slot in phrase before psn */
 
 				//====>code here
-		if(psn >= 0) {
+		while(psn >= 0) {
 			String before = "0";
 			String after = "0";
 			if (psn > 0) {
@@ -193,7 +192,7 @@ public class MagpieP2
 				return psn;		
 			}
 				/* Otherwise, search for goal in phrase from psn + 1 forward */
-			else findKeyword(phrase, goal, psn+1);
+			psn++;
 		}
 		return -1;
 
@@ -227,5 +226,15 @@ public class MagpieP2
 			response = "You don't say.";
 
 		return response;
+	}
+	public static void main(String args[]) {
+		MagpieP2 maggie = new MagpieP2();
+		System.out.println (maggie.getResponse(" "));
+System.out.println(maggie.getResponse("I know not no."));
+System.out.println (maggie.getResponse("My dog died."));
+System.out.println(maggie.getResponse("My Father is lazy."));
+System.out.println(maggie.getResponse("I want to sleep."));
+System.out.println(maggie.getResponse("I hate you."));
+System.out.println(maggie.getResponse("You love me."));
 	}
 }
