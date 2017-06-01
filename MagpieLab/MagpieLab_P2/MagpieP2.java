@@ -66,13 +66,12 @@ public class MagpieP2
 			response = transformIWantToStatement(statement);
 		}
 
-
 		else
 		{
 			// Look for a two word (you <something> me)
 			// pattern
 			int psn = findKeyword(statement, "you", 0);
-
+			int psn2 = findKeyword(statement, "I", 0);
 
 			if (psn >= 0
 			&& findKeyword(statement, "me", psn) >= 0)
@@ -99,9 +98,9 @@ public class MagpieP2
 		if (lastChar.equals(".")) {
 			statement = statement.substring(0, statement.length()-1);
 		}
-		int psn = findKeyword(statement, "I want to ");
-		String restOfStatement = statement.substring(psn+2);
-		return "What would it mean to" + restOfStatement + "?";
+		int psn = findKeyword(statement, "I want to");
+		String restOfStatement = statement.substring(psn+9).trim();
+		return "What would it mean to " + restOfStatement + "?";
 		/**
 		* trim the statement
 		* variable lastChar = last character in statement
@@ -134,23 +133,7 @@ public class MagpieP2
 		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
 		String restOfStatement = statement.substring(psnOfYou+3, psnOfMe);
 		return "What makes you think that I" + restOfStatement + "you?";
-		/**
-		* trim the statement
-		* Set new String lastChar to the last character in statement
-		* if lastChar is a period...
-		*        remove the period
-		*
-		* Set new int psnOfYou to the result of findKeyword
-		*        @param statement and "you"
-		* Set new int psnOfMe to the result of findKeyword
-		*      @param statement, "me", and psnOfYou + 3
-		* Set new String restOfStatement to the rest of statement after "You" + 3,
-		* and before "me".
-		*
-		* return "What makes you think that I " + restOfStatement + "you?"
-		* */
 	}
-
 	/** Ex_02: The findKeyword() Method...
 	 * ========================================================= */
 	private int findKeyword(String statement, String goal, int startPos)
@@ -173,8 +156,8 @@ public class MagpieP2
 
 				//====>code here
 		while(psn >= 0) {
-			String before = "0";
-			String after = "0";
+			String before = " ";
+			String after = " ";
 			if (psn > 0) {
 				before = phrase.substring(psn-1, psn);
 			}
@@ -182,8 +165,8 @@ public class MagpieP2
 				proceed otherwise
 					set after = the slot in phrase after psn + length of goal */
 				//=====> code here
-			if (phrase.length() >= psn+goal.length()+1) {
-				after = phrase.substring(psn+goal.length());
+			if (phrase.length() > psn+goal.length()) {
+				after = phrase.substring(psn+goal.length(),psn+goal.length()+1);
 			}
 				/* if before and after are not letters (compare before to "a"
 					and after to "z")
@@ -192,7 +175,7 @@ public class MagpieP2
 				return psn;		
 			}
 				/* Otherwise, search for goal in phrase from psn + 1 forward */
-			psn++;
+			psn = phrase.indexOf(goal, psn+1);
 		}
 		return -1;
 
@@ -226,15 +209,5 @@ public class MagpieP2
 			response = "You don't say.";
 
 		return response;
-	}
-	public static void main(String args[]) {
-		MagpieP2 maggie = new MagpieP2();
-		System.out.println (maggie.getResponse(" "));
-System.out.println(maggie.getResponse("I know not no."));
-System.out.println (maggie.getResponse("My dog died."));
-System.out.println(maggie.getResponse("My Father is lazy."));
-System.out.println(maggie.getResponse("I want to sleep."));
-System.out.println(maggie.getResponse("I hate you."));
-System.out.println(maggie.getResponse("You love me."));
 	}
 }
