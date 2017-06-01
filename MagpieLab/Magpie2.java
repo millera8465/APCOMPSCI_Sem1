@@ -89,8 +89,8 @@ public class Magpie2
 
 				//====>code here
 		while(psn >= 0) {
-			String before = "0";
-			String after = "0";
+			String before = " ";
+			String after = " ";
 			if (psn > 0) {
 				before = phrase.substring(psn-1, psn);
 			}
@@ -98,8 +98,8 @@ public class Magpie2
 				proceed otherwise
 					set after = the slot in phrase after psn + length of goal */
 				//=====> code here
-			if (phrase.length() >= psn+goal.length()+1) {
-				after = phrase.substring(psn+goal.length());
+			if (phrase.length() > psn+goal.length()) {
+				after = phrase.substring(psn+goal.length(),psn+goal.length()+1);
 			}
 				/* if before and after are not letters (compare before to "a"
 					and after to "z")
@@ -108,7 +108,7 @@ public class Magpie2
 				return psn;		
 			}
 				/* Otherwise, search for goal in phrase from psn + 1 forward */
-			psn++;
+			psn = phrase.indexOf(goal, psn+1);
 		}
 		return -1;
 
